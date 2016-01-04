@@ -1,6 +1,6 @@
 #include "Bibliotecas.h"
 
-int* init_dados(char *nome, int *n, int *iter);
+int** init_dados(char *nome, int *n);
 
 void gera_sol_inicial(int *sol, int v);
 

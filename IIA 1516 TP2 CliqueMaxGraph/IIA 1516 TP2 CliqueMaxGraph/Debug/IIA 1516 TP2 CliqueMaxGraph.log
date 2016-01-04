@@ -1,8 +1,13 @@
-﻿Build started 30/12/2015 18:18:44.
+﻿Build started 04/01/2016 05:04:51.
      1>Project "C:\Users\David Soares\Documents\GitHub\IIA\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt main.c
-         main.c
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt utils.c
+         utils.c
+     1>c:\users\david soares\documents\github\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\utils.c(84): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char'
+     1>c:\users\david soares\documents\github\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\utils.c(84): warning C4024: 'strcmp': different types for formal and actual parameter 1
+     1>c:\users\david soares\documents\github\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\utils.c(65): warning C4047: 'initializing': 'char' differs in levels of indirection from 'char [1]'
+     1>c:\users\david soares\documents\github\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\utils.c(66): warning C4047: 'initializing': 'char' differs in levels of indirection from 'char [1]'
+     1>c:\users\david soares\documents\github\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\utils.c(65): warning C4101: 'c2': unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Soares\Documents\GitHub\IIA\IIA 1516 TP2 CliqueMaxGraph\Debug\IIA 1516 TP2 CliqueMaxGraph.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\David Soares\Documents\GitHub\IIA\IIA 1516 TP2 CliqueMaxGraph\Debug\IIA 1516 TP2 CliqueMaxGraph.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Soares\Documents\GitHub\IIA\IIA 1516 TP2 CliqueMaxGraph\Debug\IIA 1516 TP2 CliqueMaxGraph.lib" /MACHINE:X86 Debug\algoritmo.obj
          Debug\funcao.obj
@@ -13,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.41
+Time Elapsed 00:00:00.34

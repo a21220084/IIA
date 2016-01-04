@@ -1,4 +1,6 @@
 #include "Bibliotecas.h"
+#include "algoritmo.h"
+#include "utils.h"
 
 
 void interface()
@@ -26,13 +28,15 @@ void interface()
 
 int main(int argc, char *argv[])
 {
-	interface();
+	
 	char nome_fich[100];
-	int *grafo, *sol, *best;
-	int vert, num_iter, i, k, runs, custo, best_custo;
+	int **grafo = NULL/*, *sol, *best*/;
+	int vert, runs/*, num_iter = 10, i, k, custo, best_custo*/;
 	float mbf = 0.0;
 
-	//////////////////DEFINE SE QUEREMOS MANDAR ARGUMENTOS POR LINHAS COMANDOS OU AO CHAMAR O EXECUTAVEL
+
+
+	//////////////////1º DEFINE SE QUEREMOS MANDAR ARGUMENTOS POR LINHAS COMANDOS OU AO CHAMAR O EXECUTAVEL
 	if (argc == 3)
 	{
 		runs = atoi(argv[2]);
@@ -52,4 +56,16 @@ int main(int argc, char *argv[])
 
 	if (runs <= 0)
 		return 0;
+
+
+	// //////////////////////////2º Preenche matriz de adjacencias ////////////////////////////
+	grafo = init_dados(nome_fich, &vert);
+
+	/*Deve criar uma solução inicial do tamanho da matriz pretendida completamente preenchida com 0, 
+		depois disso deve analisar o ficheiro e ir substituir na posição indicada no ficheiro*/
+
+	/////////////////3º Escolhe-se o metodo de optimização!!!!/////////////////
+	interface();
+
+
 }
