@@ -62,11 +62,10 @@ int** init_dados(char *nome, int *n)
 	FILE *f;
 	int **p = NULL, **q = NULL;
 	int i = 0, j = 0, valor1 = 0, valor2 = 0, arestas = 0, vertices = 0;
-	char c1 = "", c2;
-	char var = "";
+	char *c1, *c2="p";
 	int a = 1;
 	///////////Abertura de ficheiro
-	f = fopen(nome, "r");
+	f = fopen(nome, "rb");
 	if (!f)
 	{
 		printf("Erro no acesso ao ficheiro dos dados\n");
@@ -78,14 +77,16 @@ int** init_dados(char *nome, int *n)
 
 	while (!(feof(f)))
 	{
-	
 		
-		fscanf(f, "%c", &c1);
-		if (strcmp(c1, "p") == 0)
+		
+		fscanf(f, "%c", c1);
+		if (strcmp(c1, c2) == 0)
 		{
 			printf("%c", c1);
+			system("PAUSE");
 		}
 		printf("Vou ler");
+		system("PAUSE");
 		//while (a == 1)
 		//{
 		//	fscanf(f, "%c", &c1);
