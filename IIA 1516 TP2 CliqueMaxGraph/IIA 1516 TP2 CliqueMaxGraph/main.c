@@ -58,9 +58,9 @@ int main(int argc, char *argv[])
 	arestas = init_fich(nome_fich);
 
 	grafo = init_dados("resultados.txt", &vert, &num_iter);
-	printf("Ola");
 
-	interface();
+
+	/*interface();*/
 
 	///////////////////////ALOCA MEMORIA PARA A VARIAVEL 'SOL' e 'BEST'////////////////
 
@@ -77,8 +77,8 @@ int main(int argc, char *argv[])
 	for (k = 0; k<runs; k++)
 	{
 		// Gerar solucao inicial
-		gera_sol_inicial(sol, vert);	
-		printf("TEMOS SOLUCAO INICIAL");
+		gera_sol_inicial(sol, vert/*, percent*/);	
+
 		// Trepa colinas
 		custo = trepa_colinas(sol, grafo, vert, num_iter);
 

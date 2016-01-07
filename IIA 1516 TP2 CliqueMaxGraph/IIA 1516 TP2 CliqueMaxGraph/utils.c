@@ -81,14 +81,14 @@ int init_fich(char *nome)
 		{
 			fprintf(out, "%d\t", q[i][j]);
 		}
-		printf("\vertices");
+		fprintf(out,"\n");
 	}
 
 	for (i = 0; i < vertices; i++)		//Inicializamos os primeiros dois numero com zero mais estes vao ser ignorados
 	{
 		for (j = 0; j < vertices; j++)
 		{
-			printf("%d ", q[i][j]);
+			/*printf("%d ", q[i][j]);*/
 			if (q[i][j] == 1)
 				contador++;
 
@@ -160,14 +160,14 @@ int* init_dados(char *nome, int *n, int *iter)
 
 // Gera a solucao inicial
 // Parametros: solucao, numero de vertices
-void gera_sol_inicial(int *sol, int v)
+void gera_sol_inicial(int *sol, int v/*, int percent*/)
 {
 	int i, x;
 
-	for (i = 0; i<v; i++)
+	for (i = 0; i<v; i++)		//Cria uma solução inicial a zero!
 		sol[i] = 0;
 
-	for (i = 0; i<v / 2; i++)
+	for (i = 0; i<v/2; i++)	//Devemos minimizar o 2! De modo a aumentar o. o 2 vai ser incrementado de 0 a 1 num ciclo for
 	{
 		do
 			x = random_l_h(0, v - 1);

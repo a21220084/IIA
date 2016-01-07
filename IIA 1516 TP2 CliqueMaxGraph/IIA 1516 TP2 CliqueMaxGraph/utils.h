@@ -2,7 +2,7 @@
 
 int* init_dados(char *nome, int *n, int *iter);
 
-void gera_sol_inicial(int *sol, int v);
+void gera_sol_inicial(int *sol, int v/*, int percent*/);
 
 void escreve_sol(int *sol, int vert);
 
