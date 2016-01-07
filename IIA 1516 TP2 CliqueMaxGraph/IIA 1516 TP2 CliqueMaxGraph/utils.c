@@ -3,146 +3,157 @@
 
 ////////////////CONFIGURAR LEITURA DE DADOS DO FICHEIRO PARA IGNORAR OS C/////////////////
 
-
-// Leitura do ficheiro de input
-// Recebe: nome do ficheiro, numero de vertices (ptr), numero de iteracoes (ptr)
-// Devolve a matriz de adjacencias
-//int* init_dados(char *nome, int *n, int *iter)
-//{
-//	FILE *f;
-//	int *p, *q;
-//	int i, j;
-//
-//	f=fopen(nome, "r");
-//	if(!f)
-//	{
-//		printf("Erro no acesso ao ficheiro dos dados\n");
-//		exit(1);
-//	}
-//	
-//	// Numero de iteracoes
-//	fscanf(f, " %d", iter);
-//	
-//	// Numero de vertices
-//	fscanf(f, " %d", n);
-//	
-//	// Alocacao dinamica da matriz
-//	p = (int**)malloc(sizeof(int)*(*n));
-//	if(!p)
-//	{
-//	    printf("Erro na alocacao de memoria\n");
-//	    exit(1);
-//	}
-//	q=p;
-//
-//	////////////maestro
-//
-//	for (i = 0; i<*n; i++)
-//	{
-//		p[i] = (int *)malloc(sizeof(int)*(*n));
-//
-//		for (j = 0; j<*n; j++)
-//			p[i][j] = 0;
-//	}
-//	//////////end maestro
-//
-//	
-//	// Preenchimento da matriz
-//	for(i=0; i<*n; i++)
-//	 for(j=0; j<*n; j++)
-//	   fscanf(f, " %d", q++);
-//	fclose(f);
-//	
-//	return p;
-//}
-
-int** init_dados(char *nome, int *n)
+int init_fich(char *nome)
 {
 	////////Declaração de variaveis
-	FILE *f;
-	int **p = NULL , **q = NULL ;
-	int i = 0, j = 0, valor1 = 0, valor2 = 0, arestas = 0, vertices = 0, contador = 0;
+	FILE *f, *out;
+	int  **q = NULL;
+	int i = 0, j = 0, valor1 = 0, valor2 = 0, arestas = 0, vertices, contador = 0;
 	char c1;
+
+	//Abertura do ficheiro de escrita
+	out = fopen("resultados.txt", "w");
+	if (out == NULL)
+	{
+		printf("ERRO: não consigo abrir o ficheiro resultados.txt\vertices");
+		exit(1);
+	}
+
+	///////////Abertura de ficheiro para leitura
+	f = fopen(nome, "rb");
+	if (!f)
+	{
+		printf("Erro no acesso ao ficheiro dos dados\vertices");
+		exit(1);
+	}
+
+
+	fscanf(f, "%c%d %d", &c1, &vertices, &arestas);
+	
+
+	printf("char: %c vertices: %d arestas: %d", c1, vertices, arestas);
+
+	// Alocacao dinamica da matriz
+	q = malloc(sizeof(int)*vertices);
+	for (i = 0; i < vertices; i++)
+	{
+		q[i] = malloc(sizeof(int)*vertices);	//Para cada linha do array aloca o numcolunas inserido
+	}
+	if (!q)
+	{
+		printf("\nErro na alocacao de memoria\n");
+		exit(1);
+	}
+
+
+
+	for (i = 0; i < vertices; i++)		//Inicializamos os primeiros dois numero com zero mais estes vao ser ignorados
+		for (j = 0; j < vertices; j++)
+			q[i][j] = 0;
+
+	while (!(feof(f)))
+	{
+
+		fscanf(f, "%c %d %d ", &c1, &valor1, &valor2);
+
+		printf("\n %d %d\n", valor1, valor2);		//TEMPORARIO	//O PRIMEIRO VALOR é 0 0 porque????
+
+		if (valor1 != 0 && valor2 != 0)
+		{
+			q[valor1 - 1][valor2 - 1] = 1;
+
+			q[valor2 - 1][valor1 - 1] = 1;
+
+			printf("\n %d \n", q[valor1 - 1][valor2 - 1]);
+		}
+
+	}
+
+
+	/////////////ESCRITA DO NOVO FICHEIRO
+
+	fprintf(out, "%d\n\n%d\n\n", iteracoes, vertices);
+
+
+	for (i = 0; i < vertices; i++)
+	{
+		for (j = 0; j < vertices; j++)
+		{
+			fprintf(out, "%d\t", q[i][j]);
+		}
+		printf("\vertices");
+	}
+
+	for (i = 0; i < vertices; i++)		//Inicializamos os primeiros dois numero com zero mais estes vao ser ignorados
+	{
+		for (j = 0; j < vertices; j++)
+		{
+			printf("%d ", q[i][j]);
+			if (q[i][j] == 1)
+				contador++;
+
+		}
+		printf("\n");
+	}
+	printf(" \n\n CONTADOR: %d arestas \n", contador);
+
+	fclose(f);
+	fclose(out);
+	free(q);
+	
+	if (contador/2 == arestas)
+	{
+		return arestas;
+		
+		
+
+	}
+	else 
+	{
+		printf("\n\n\n O numero de arestas nao coincide com o ficheiro!\n                   A ABORTAR!!!\n\n");
+		exit(1);
+	}
 	
 
 	
-	///////////Abertura de ficheiro
-	f = fopen(nome, "rb");
+}
+
+
+int* init_dados(char *nome, int *n, int *iter)
+{
+	FILE *f;
+	int *p, *q;
+	int i, j;
+
+	f = fopen(nome, "r");
 	if (!f)
 	{
 		printf("Erro no acesso ao ficheiro dos dados\n");
 		exit(1);
 	}
 
-	///////////Leitura de ficheiro
+	// Numero de iteracoes
+	fscanf(f, " %d", iter);
 
-	
-			
-				fscanf(f, "%c%d %d", &c1, n, &arestas); 
-				
-				printf("char: %c n: %d arestas: %d",c1, *n, arestas);
-				
-				// Alocacao dinamica da matriz
-				p = malloc(sizeof(int)*(*n));
-				for (i = 0; i < *n; i++)
-				{
-					p[i] = malloc(sizeof(int)*(*n));	//Para cada linha do array aloca o numcolunas inserido
-				}
-				if (!p)
-				{
-					printf("\nErro na alocacao de memoria\n");
-					exit(1);
-				}
+	// Numero de vertices
+	fscanf(f, " %d", n);
 
-				q = p;
+	// Alocacao dinamica da matriz
+	p = malloc(sizeof(int)*(*n)*(*n));
+	if (!p)
+	{
+		printf("Erro na alocacao de memoria\n");
+		exit(1);
+	}
+	q = p;
 
-				for (i = 0; i < *n; i++)		//Inicializamos os primeiros dois numero com zero mais estes vao ser ignorados
-					for (j = 0; j < *n; j++)
-						q[i][j] = 0;
-				
-				while(!(feof(f)))
-				{
-					
-						fscanf(f, "%c %d %d ",&c1, &valor1, &valor2);
-
-						printf("\n %d %d\n", valor1, valor2);		//TEMPORARIO	//O PRIMEIRO VALOR é 0 0 porque????
-
-						if (valor1 != 0 && valor2 != 0)
-						{
-							q[valor1 - 1][valor2 - 1] = 1;
-							
-							//q[valor2 - 1][valor1 - 1] = 1;
-
-							printf("\n %d \n", q[valor1 - 1][valor2 - 1]);
-						}
-							
-				}
-
-
-				for (i = 0; i < *n; i++)		//Inicializamos os primeiros dois numero com zero mais estes vao ser ignorados
-				{
-					for (j = 0; j < *n; j++)
-					{
-						printf("%d ", q[i][j]);
-						if (q[i][j] == 1)
-							contador++;
-
-					}
-					printf("\n");
-				}
-				printf(" \n\n CONTADOR: %d arestas \n", contador);
-	
+	// Preenchimento da matriz
+	for (i = 0; i<*n; i++)
+		for (j = 0; j<*n; j++)
+			fscanf(f, " %d", q++);
 	fclose(f);
 
-	if(contador == arestas)
-		return p;
-	else
-	{
-		printf("\n\n\n O numero de arestas nao coincide com o ficheiro!\n                   A ABORTAR!!!\n\n");
-		exit(1);
-		free(p);
-	}
-
+	return p;
 }
 
 
@@ -167,7 +178,7 @@ void gera_sol_inicial(int *sol, int v)
 
 // Escreve solucao
 // Parametros: solucao e numero de vertices
-void escreve_sol(int **sol, int vert)
+void escreve_sol(int *sol, int vert)
 {
 	int i;
 

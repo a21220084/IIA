@@ -1,41 +1,20 @@
-﻿Build started 07/01/2016 14:35:10.
+﻿Build started 07/01/2016 19:54:32.
      1>Project "C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TC /errorReport:prompt algoritmo.c funcao.c main.c utils.c
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TC /errorReport:prompt algoritmo.c main.c utils.c
          utils.c
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\utils.c(180): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
          main.c
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.h(3): error C2087: 'a': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.h(3): error C2087: 'a': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.h(5): error C2087: 'sol': missing subscript
      1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\main.c(51): warning C4013: 'gets' undefined; assuming extern returning int
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\main.c(90): warning C4047: 'function': 'int (*)[1]' differs in levels of indirection from 'int **'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\main.c(90): warning C4024: 'trepa_colinas': different types for formal and actual parameter 1
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\main.c(101): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\main.c(101): warning C4024: 'substitui': different types for formal and actual parameter 1
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\main.c(101): warning C4024: 'substitui': different types for formal and actual parameter 2
-         funcao.c
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.h(3): error C2087: 'a': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.c(6): error C2087: 'a': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.c(15): warning C4047: '==': 'int [1]' differs in levels of indirection from 'int'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.c(15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
          algoritmo.c
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\funcao.h(3): error C2087: 'a': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.h(5): error C2087: 'sol': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(35): error C2087: 'sol': missing subscript
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(57): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[1]'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(57): warning C4024: 'gera_vizinho': different types for formal and actual parameter 1
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(57): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(57): warning C4024: 'gera_vizinho': different types for formal and actual parameter 2
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(60): warning C4047: 'function': 'int (*)[1]' differs in levels of indirection from 'int **'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(60): warning C4024: 'calcula_fit': different types for formal and actual parameter 1
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(65): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[1]'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(65): warning C4024: 'substitui': different types for formal and actual parameter 1
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(65): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-     1>c:\users\david soares\documents\github\iia\iia\iia 1516 tp2 cliquemaxgraph\iia 1516 tp2 cliquemaxgraph\algoritmo.c(65): warning C4024: 'substitui': different types for formal and actual parameter 2
          Generating Code...
-     1>Done Building Project "C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\x64\Debug\IIA 1516 TP2 CliqueMaxGraph.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\x64\Debug\IIA 1516 TP2 CliqueMaxGraph.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\x64\Debug\IIA 1516 TP2 CliqueMaxGraph.lib" /MACHINE:X64 x64\Debug\algoritmo.obj
+         x64\Debug\funcao.obj
+         x64\Debug\main.obj
+         x64\Debug\utils.obj
+         IIA 1516 TP2 CliqueMaxGraph.vcxproj -> C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\x64\Debug\IIA 1516 TP2 CliqueMaxGraph.exe
+     1>Done Building Project "C:\Users\David Soares\Documents\GitHub\IIA\IIA\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph\IIA 1516 TP2 CliqueMaxGraph.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.62
+Time Elapsed 00:00:00.46

@@ -6,6 +6,7 @@
 #include <time.h>
 
 #define DEFAULT_RUNS 10
+#define iteracoes 100
 
 
 
