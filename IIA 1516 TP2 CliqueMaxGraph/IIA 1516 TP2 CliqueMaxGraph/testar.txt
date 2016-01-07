@@ -1,7 +1,4 @@
-c FILE: 4-Insertions_3.col
-c SOURCE: M. Caramia (caramia@iac.rm.cnr.it) and P. Dell'Olmo (paolo.dellolmo@uniroma1.it)
-c DESCRIPTION: 4-Insertions graph of order 3%
-p edge 79 156
+p 79 156
 e 1 2
 e 1 4
 e 1 15
