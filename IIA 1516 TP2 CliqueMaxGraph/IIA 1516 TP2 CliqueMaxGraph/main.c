@@ -29,8 +29,8 @@ void interface()
 int main(int argc, char *argv[])
 {
 	char nome_fich[100];
-	int **grafo = NULL/*, *sol, *best*/;
-	int vert, runs/*, num_iter = 10, i, k, custo, best_custo*/;
+	int **grafo = NULL, **sol, **best;
+	int vert, runs, num_iter = 10, i, k, custo, best_custo;
 	float mbf = 0.0;
 
 	//////////////////DEFINE SE QUEREMOS MANDAR ARGUMENTOS POR LINHAS COMANDOS OU AO CHAMAR O EXECUTAVEL
@@ -59,5 +59,57 @@ int main(int argc, char *argv[])
 
 	interface();
 
+	///////////////////////ALOCA MEMORIA PARA A VARIAVEL 'SOL'////////////////
+
+	sol = malloc(sizeof(int)*(vert));
+	for (int i = 0; i < vert; i++)
+	{
+		sol[i] = malloc(sizeof(int)*vert);	//Para cada linha do array aloca o numcolunas inserido
+	}
+
+	///////////////////////ALOCA MEMORIA PARA A VARIAVEL 'BEST'////////////////
+
+	best = malloc(sizeof(int)*(vert));
+	for (int i = 0; i < vert; i++)
+	{
+		best[i] = malloc(sizeof(int)*vert);	//Para cada linha do array aloca o numcolunas inserido
+	}
+
+	if (sol == NULL || best == NULL)
+	{
+		printf("Erro na alocacao de memoria");
+		exit(1);
+	}
+
+	//for (k = 0; k<runs; k++)
+	//{
+	//	// Gerar solucao inicial
+	//	//gera_sol_inicial(sol, vert);		// Não tem interesse para o trabalho pratico porque inicializamos já uma matriz a 0
+
+	//	// Trepa colinas
+	//	custo = trepa_colinas(sol, grafo, vert, num_iter);
+
+	//	// Escreve resultados da repeticao k
+	//	printf("\nRepeticao %d:", k);
+	//	escreve_sol(sol, vert);
+	//	printf("Custo final: %2d\n", custo);
+
+	//	mbf += custo;
+	//	if (k == 0 || best_custo > custo)
+	//	{
+	//		best_custo = custo;
+	//		substitui(best, sol, vert);
+	//	}
+	//}
+
+	//// Escreve resultados globais
+	//printf("\n\nMBF: %f\n", mbf / k);
+	//printf("\nMelhor solucao encontrada");
+	//escreve_sol(best, vert);
+	//printf("Custo final: %2d\n", best_custo);
+
 	free(grafo);
+	free(sol);
+	free(best);
+
 }

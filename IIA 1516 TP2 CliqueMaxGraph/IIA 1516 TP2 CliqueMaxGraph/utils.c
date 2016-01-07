@@ -167,7 +167,7 @@ void gera_sol_inicial(int *sol, int v)
 
 // Escreve solucao
 // Parametros: solucao e numero de vertices
-void escreve_sol(int *sol, int vert)
+void escreve_sol(int **sol, int vert)
 {
 	int i;
 

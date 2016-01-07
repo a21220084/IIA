@@ -3,7 +3,7 @@
 // Calcula a qualidade de uma solucao
 // Recebe: solucao, matriz, numero de vertices
 // Devolve o custo
-int calcula_fit(int a[], int *mat, int vert)
+int calcula_fit(int a[][], int **mat, int vert)
 {
 	int total=0;
 	int i, j;

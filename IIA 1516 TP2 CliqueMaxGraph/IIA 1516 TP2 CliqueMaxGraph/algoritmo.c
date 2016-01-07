@@ -4,7 +4,7 @@
 // Gera um vizinho
 // Parametros: solucao actual, vizinho, numero de vertices
 //swap two vertices
-void gera_vizinho(int a[], int b[], int n)
+void gera_vizinho(int a[][], int b[][], int n)
 {
     int i, p1, p2;
 	
@@ -32,12 +32,17 @@ void gera_vizinho(int a[], int b[], int n)
 // Parametros: solucao, matriz de adjacencias, numero de vertices e numero de iteracoes
 // Devolve o custo da melhor solucao encontrada
 
-int trepa_colinas(int sol[], int *mat, int vert, int num_iter)
+int trepa_colinas(int sol[][], int **mat, int vert, int num_iter)
 {
-    int *nova_sol, custo, custo_viz, i;
+    int **nova_sol, custo, custo_viz, i;
     
-	nova_sol = malloc(sizeof(int)*vert);
-    if(nova_sol == NULL)
+		nova_sol= malloc(sizeof(int)*(vert));
+	for (int i = 0; i < vert; i++)
+	{
+		nova_sol[i] = malloc(sizeof(int)*vert);	//Para cada linha do array aloca o numcolunas inserido
+	}
+   
+	if(nova_sol == NULL)
     {
         printf("Erro na alocacao de memoria");
         exit(1);
