@@ -22,8 +22,8 @@ void gera_vizinho(int a[], int b[], int n)
 	while (b[p2] != 1);
 
 	// Troca
-	b[p1] = 1;
-	b[p2] = 0;
+	/*b[p1] = 1;
+	b[p2] = 0;*/
 }
 
 

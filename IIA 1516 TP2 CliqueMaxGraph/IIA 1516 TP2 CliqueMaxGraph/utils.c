@@ -164,16 +164,18 @@ void gera_sol_inicial(int *sol, int v/*, int percent*/)
 {
 	int i, x;
 
-	for (i = 0; i<v; i++)		//Cria uma solução inicial a zero!
+	//for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
+	//	sol[i] = flip();
+	for (i = 0; i<v; i++)
 		sol[i] = 0;
-
-	for (i = 0; i<v/2; i++)	//Devemos minimizar o 2! De modo a aumentar o. o 2 vai ser incrementado de 0 a 1 num ciclo for
+	for (i = 0; i<v*0.1; i++)	//Devemos minimizar o 2! De modo a aumentar o. o 2 vai ser incrementado de 0 a 1 num ciclo for
 	{
 		do
 			x = random_l_h(0, v - 1);
 		while (sol[x] != 0);
 		sol[x] = 1;
 	}
+	//printf("Nvo");
 }
 
 // Escreve solucao
@@ -182,11 +184,11 @@ void escreve_sol(int *sol, int vert)
 {
 	int i;
 
-	printf("\nConjunto A: ");
-	for (i = 0; i<vert; i++)
-		if (sol[i] == 0)
-			printf("%2d  ", i);
-	printf("\nConjunto B: ");
+	//printf("\nConjunto A: ");
+	//for (i = 0; i<vert; i++)
+	//	if (sol[i] == 0)
+	//		printf("%2d  ", i);
+	printf("\nConjunto: ");
 	for (i = 0; i<vert; i++)
 		if (sol[i] == 1)
 			printf("%2d  ", i);
@@ -221,4 +223,13 @@ int random_l_h(int min, int max)
 float rand_01()
 {
 	return ((float)rand()) / RAND_MAX;
+}
+
+// Simula o lancamento de uma moeda
+int flip()
+{
+	if ((((float)rand()) / RAND_MAX) < 0.5)
+		return 0;
+	else
+		return 1;
 }

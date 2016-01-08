@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
 	if (runs <= 0)
 		return 0;
 
+	init_rand();
 		// //////////////////////////2º Preenche matriz de adjacencias ////////////////////////////
 	arestas = init_fich(nome_fich);
 
@@ -76,8 +77,15 @@ int main(int argc, char *argv[])
 
 	for (k = 0; k<runs; k++)
 	{
+		do
+		{
+
 		// Gerar solucao inicial
 		gera_sol_inicial(sol, vert/*, percent*/);	
+
+		custo = evaluate(sol, grafo, vert);
+			
+		} while (custo == 0);
 
 		// Trepa colinas
 		custo = trepa_colinas(sol, grafo, vert, num_iter);
@@ -88,7 +96,7 @@ int main(int argc, char *argv[])
 		printf("Custo final: %2d\n", custo);
 
 		mbf += custo;
-		if (k == 0 || best_custo > custo)
+		if (k == 0 || best_custo < custo)
 		{
 			best_custo = custo;
 			substitui(best, sol, vert);

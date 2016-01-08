@@ -18,4 +18,6 @@ float rand_01();
 
 int init_fich(char *nome_fich);
 
+int flip();
+
 
