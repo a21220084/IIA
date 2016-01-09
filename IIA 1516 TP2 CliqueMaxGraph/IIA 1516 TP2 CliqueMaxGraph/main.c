@@ -87,10 +87,10 @@ int main(int argc, char *argv[])
 			
 		if (custo > 0)
 		{
-			system("PAUSE");
+			/*system("PAUSE");*/
 		}
 		} while (!custo != 0);
-		system("PAUSE");
+		/*system("PAUSE");*/
 		// Trepa colinas
 		custo = trepa_colinas(sol, grafo, vert, num_iter);
 
