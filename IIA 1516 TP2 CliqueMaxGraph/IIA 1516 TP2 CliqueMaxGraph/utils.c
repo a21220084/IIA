@@ -58,7 +58,7 @@ int init_fich(char *nome)
 
 		printf("\n %d %d\n", valor1, valor2);		//TEMPORARIO	//O PRIMEIRO VALOR é 0 0 porque????
 
-		if (valor1 != 0 && valor2 != 0)
+		if (valor1 != 0 && valor2 != 0 && valor1 != valor2)
 		{
 			q[valor1 - 1][valor2 - 1] = 1;
 
@@ -164,17 +164,17 @@ void gera_sol_inicial(int *sol, int v/*, int percent*/)
 {
 	int i, x;
 
-	//for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
-	//	sol[i] = flip();
-	for (i = 0; i<v; i++)
-		sol[i] = 0;
-	for (i = 0; i<v*0.1; i++)	//Devemos minimizar o 2! De modo a aumentar o. o 2 vai ser incrementado de 0 a 1 num ciclo for
-	{
-		do
-			x = random_l_h(0, v - 1);
-		while (sol[x] != 0);
-		sol[x] = 1;
-	}
+	for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
+		sol[i] = flip();
+	//for (i = 0; i<v; i++)
+	//	sol[i] = 0;
+	//for (i = 0; i<v*0.1; i++)	//Devemos minimizar o 2! De modo a aumentar o. o 2 vai ser incrementado de 0 a 1 num ciclo for
+	//{
+	//	do
+	//		x = random_l_h(0, v - 1);
+	//	while (sol[x] != 0);
+	//	sol[x] = 1;
+	//}
 	//printf("Nvo");
 }
 

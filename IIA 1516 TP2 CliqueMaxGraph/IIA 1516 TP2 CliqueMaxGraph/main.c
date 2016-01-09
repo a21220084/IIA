@@ -85,8 +85,12 @@ int main(int argc, char *argv[])
 
 		custo = evaluate(sol, grafo, vert);
 			
-		} while (custo == 0);
-
+		if (custo > 0)
+		{
+			system("PAUSE");
+		}
+		} while (!custo != 0);
+		system("PAUSE");
 		// Trepa colinas
 		custo = trepa_colinas(sol, grafo, vert, num_iter);
 

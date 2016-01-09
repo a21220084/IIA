@@ -32,13 +32,13 @@ int calcula_fit(int a[], int *mat, int vert)
 }
 
 
-int evaluate(int a[], int *mat, int vert)
+int evaluate(int *a, int *mat, int vert)
 {
 	int *num_lig;
 	int total = 0, max_lig, pos = 0, temp, num_1 = 0;
 	int i, j;
 	
-	num_lig = malloc(sizeof(int)*vert);
+	num_lig = malloc(sizeof(int)*vert);		//Aloca dinamicamente a auxiliar 'num_lig'
 	if (num_lig == NULL)
 	{
 		printf("Erro na alocacao de memoria");
@@ -49,9 +49,14 @@ int evaluate(int a[], int *mat, int vert)
 
 
 	
-		for (i = 0; i < vert; i++)
+		for (i = 0; i < vert; i++)		// Antes de analisar a solução, calcula a quantida de vertices no conjunto
 			if (a[i] == 1)
 				num_1++;
+
+	printf("NUMERO DE UNS %d", num_1);
+	system("PAUSE");
+
+
 	do {
 		total = 0;
 		max_lig = 0;
@@ -59,69 +64,76 @@ int evaluate(int a[], int *mat, int vert)
 		for (i = 0; i < vert; i++)
 		{
 			num_lig[i] = 0;
-			printf("PAWWW%d", i);
+			
 			if (a[i] == 1)			// Alteração de a[i]==0 -> tendo 1 significa que tá analisar os do mesmo conjunto
 			{
-				
+				printf("\nVertice n %d\n", i);
 				for (j = 0; j < vert; j++)
 				{
-					
-						
-					if (a[j] == 1 && *(mat + i*vert + j) == 1)
+					if (a[j] == 1 && *(mat + i*vert + j) == 1 && i < j)
 					{
-						if (i != j)
 						num_lig[i]++;
-						total++;
+						total++;		//Total de ligações que existe no conjunto entre os vertices pertencentes a este
 					}
-					/*else
-					{
-						printf("%d", a[j]);
-						a[j] = 0;
-						vert = vert - 1;
-						printf("%d", a[j]);
-					}*/
 				}
-				printf("\nNLIG: %d\n", num_lig[i]);
+				if (num_lig[i] == 0)
+				{
+					a[i] = 0;
+				}
 			}
-
 		}
+
+
 		max_lig = (num_1*(num_1 - 1)) / 2;		//Calcula o numero max_lig de ligacoes
 
-		
-		for (i = 0, temp = 0; i < vert; i++)
+
+
+		if (total != max_lig)
 		{
-			if (i == 0)
+
+			for (i = 0, temp = 0; i < vert; i++)
 			{
-				temp = num_lig[i];
-				pos = 0;
-				printf("\nTEMP1: %d\n", temp);
+				if (a[i] == 1 && temp == 0 && i != vert - 1) //se nenhum dos vertices tiver ligacoes ele entra na mesma...
+				{
+					temp = num_lig[i];
+					pos = i;
+					printf("\nTEMP1: %d\n", temp);
+				}
+
+				else if (num_lig[i] < temp)
+				{
+					temp = num_lig[i];
+					pos = i;
+					printf("\nTEMP2: %d\n", temp);
+				}
+
+
 			}
 
-			if (num_lig[i] < temp)
+			if (temp != max_lig)
 			{
-				temp = num_lig[i];
-				pos = i;
-				printf("\nTEMP2: %d\n", temp);
+				a[pos] = 0;
 			}
-	
-			
 		}
 
-		if (temp != max_lig)
-		{
-			printf("\nTEMP3: %d\n", temp);
-			printf("\nNUM1: %d\n", num_1);
-			a[pos] = 0;
-			num_1--;
-			printf("\nNUM1: %d\n", num_1);
-		}
 
-		printf("\nTEMP4: %d\n", temp);
-		
+
+
+		num_1 = 0;
+		for (i = 0; i < vert; i++)
+			if (a[i] == 1)
+				num_1++;
+		max_lig = (num_1*(num_1 - 1)) / 2;
+		printf("NUMde1::%d maxlig %d total: %d\n", num_1, max_lig, total);
 
 		
-	} while (total != max_lig || num_1 != 1);
-	system("PAUSE");
+	} while (total != 0 || total != max_lig);
+
+	printf("\n\n\n\n\SAI\n\n\n\n\n");
+	if (total> 0)
+	{
+		system("PAUSE");
+	}
 
 	free(num_lig);
 	if (total == max_lig)
