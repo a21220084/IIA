@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 		return 0;
 
 	init_rand();
-		// //////////////////////////2º Preenche matriz de adjacencias ////////////////////////////
+	// //////////////////////////2º Preenche matriz de adjacencias ////////////////////////////
 	arestas = init_fich(nome_fich);
 
 	grafo = init_dados("resultados.txt", &vert, &num_iter);
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	for (k = 0; k<runs; k++)
+	for (k = 0; k < runs; k++)
 	{
 		if (opcao == 1)
 		{
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 
 			custo = calcula_fit(sol, grafo, vert);
 		}
-	if(opcao == 2) 
+		if (opcao == 3)
 		{
 			do
 			{
@@ -99,6 +99,16 @@ int main(int argc, char *argv[])
 					/*system("PAUSE");*/
 				}
 			} while (!custo != 0);
+		}
+
+		if (opcao == 2)
+		{
+			printf("\n\nFUNCAO NAO IMPLEMENTADA :/ \n\n");
+			free(best);
+			free(sol);
+			free(grafo);
+			exit(1);
+
 		}
 	
 		// Trepa colinas
@@ -129,31 +139,4 @@ int main(int argc, char *argv[])
 
 	return 0;
 
-if(opcao == 3)
-{
-
-
-
-	int r, gen_actual;
-	pchrom pop = NULL, parents = NULL;
-	struct info EA_param;
-	chrom best_run, best_ever;
-
-	EA_param.numGenerations = max_gen;
-	//EA_param.numGenes = m;
-	//EA_param.capacity = n;
-	EA_param.popsize = vert;
-	EA_param.pm = PM;
-	EA_param.pr = PR;
-	printf("Repeticao %d\n", r + 1);
-	//Vai fazer init_pop runs vezes
-	pop = init_pop(EA_param);							 // Geracao da populacao inicial //CRIA A SOLUCAO INICIAL
-//	evaluate2(pop, EA_param, grafo);						// Avaliacao da populacao inicial	//PENSO SER ALGUM TIPO DE PENALIZACAO
-	gen_actual = 1;
-
-	best_run = pop[0];
-//	best_run = get_best(pop, EA_param, best_run);		// Inicializar a melhor solucao encontrada //PROCURA ENTRE TODAS AS GERACOES QUAL A MELHOR
-
-
-	}
 }

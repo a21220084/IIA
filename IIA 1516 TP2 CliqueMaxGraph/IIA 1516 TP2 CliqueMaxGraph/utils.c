@@ -241,28 +241,5 @@ int flip()
 }
 
 
-//////////////////////////////////////////////////////////////////////////////
-
-pchrom init_pop(struct info d)
-{
-	int i, j;
-	pchrom p;
-
-	p = malloc(sizeof(chrom)*d.popsize);
-	if (p == NULL)
-	{
-		printf("Erro na alocacao de memoria\n");
-		exit(1);
-	}
-
-	for (i = 0; i<d.popsize; i++)
-	{
-		for (j = 0; j<d.numGenes; j++)
-			p[i].p[j] = flip();
-		p[i].fitness = 0.0;
-	}
-	return p;
-}
-
 
 
