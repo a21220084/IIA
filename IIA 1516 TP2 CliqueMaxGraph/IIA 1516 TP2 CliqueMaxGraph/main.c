@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 			/*system("PAUSE");*/
 		}
 		} while (!custo != 0);
-		/*system("PAUSE");*/
+		
 		// Trepa colinas
 		custo = trepa_colinas(sol, grafo, vert, num_iter);
 
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 		printf("\nRepeticao %d:", k);
 		escreve_sol(sol, vert);
 		printf("Custo final: %2d\n", custo);
-
+system("PAUSE");
 		mbf += custo;
 		if (k == 0 || best_custo < custo)
 		{

@@ -41,7 +41,7 @@ int calcula_fit(int a[], int *mat, int vert)
 int evaluate(int *a, int *mat, int vert)
 {
 	int *num_lig;
-	int total = 0, max_lig, pos = 0, temp, num_1 = 0;
+	int total = 0, max_lig, pos = 0, temp, num_1 = 0, conta;
 	int i, j;
 	
 	num_lig = malloc(sizeof(int)*vert);		//Aloca dinamicamente a auxiliar 'num_lig'
@@ -66,7 +66,7 @@ int evaluate(int *a, int *mat, int vert)
 	do {
 		total = 0;
 		//max_lig = 0;
-		printf("\nNEWNEWNEW\n", num_1);
+		printf("\nNEWNEWNEW\n");
 		for (i = 0; i < vert; i++)
 		{
 			num_lig[i] = 0;
@@ -97,40 +97,45 @@ int evaluate(int *a, int *mat, int vert)
 				printf("\nnum_lig[%d] = %d TOTAL=%d MAX_LIG= %d\n", i, num_lig[i], total, max_lig);
 
 			}
-			printf("\n------------------------------------------------------------------------\n");
+			//printf("\n------------------------------------------------------------------------\n");
 		}
-		printf("\n'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n");
+	/*	printf("\n'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n");*/
 
 		max_lig = (num_1*(num_1 - 1)) / 2;		//Calcula o numero max_lig de ligacoes
 
+		num_1 = 0;
+		for (i = 0; i < vert; i++)
+			if (a[i] == 1)
+				num_1++;
+		printf("NUMerode1::%d maxlig %d total: %d\n", num_1, max_lig, total);
 
-
-		if (total != max_lig)
+		for (i = 0, temp = 0, conta = 0; i < vert; i++)
 		{
-
-			for (i = 0, temp = 0; i < vert; i++)
-			{
-				if (a[i] == 1 && temp == 0 && i != vert - 1) //se nenhum dos vertices tiver ligacoes ele entra na mesma...
+				if (/*num_lig[i] != max_lig*/ conta == 0)// ASSIM IGNORA O MAX LIG CONTADO, SE COMENTAR FUNCIONA
 				{
-					temp = num_lig[i];
-					pos = i;
-					printf("\nTEMP1: %d\n", temp);
+					
+					if (a[i] == 1 && conta == 0) 
+					{
+						temp = num_lig[i];
+						pos = i;
+						conta++;
+						//printf("\nTEMP1: %d\n", temp);
+					}
+
+					else if (num_lig[i] < temp) 
+					{
+						temp = num_lig[i];
+						pos = i;
+						//printf("\nTEMP2: %d\n", temp);
+					}
 				}
-
-				else if (num_lig[i] < temp)
-				{
-					temp = num_lig[i];
-					pos = i;
-					printf("\nTEMP2: %d\n", temp);
-				}
-
-
-			}
-
-			if (temp != max_lig)
-			{
-				a[pos] = 0;
-			}
+		}
+		printf("\n\nOLAOLA\n\n");
+		if ((temp != max_lig) && a[pos] == 1)
+		{
+			printf("\n\nREMOVI O ZERO\n\n");
+			a[pos] = 0;
+			//system("PAUSE");
 		}
 
 
@@ -140,13 +145,13 @@ int evaluate(int *a, int *mat, int vert)
 		for (i = 0; i < vert; i++)
 			if (a[i] == 1)
 				num_1++;
-		max_lig = (num_1*(num_1 - 1)) / 2;
+		//max_lig = (num_1*(num_1 - 1)) / 2;		Nao deve calcular max ligacoes aqui!!!
 		printf("NUMde1::%d maxlig %d total: %d\n", num_1, max_lig, total);
 
 		
 	} while (total != max_lig);
 
-	printf("\n\n\n\n\SAI\n\n\n\n\n");
+	printf("\n\n\n\n\ SAI \n\n\n\n\n");
 	if (total> 0)
 	{
 		/*system("PAUSE");*/
