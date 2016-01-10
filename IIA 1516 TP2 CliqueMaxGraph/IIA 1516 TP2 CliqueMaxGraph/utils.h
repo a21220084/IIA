@@ -1,4 +1,6 @@
 #include "Bibliotecas.h"
+#include "algoritmo.h"
+#include "funcao.h"
 
 int* init_dados(char *nome, int *n, int *iter);
 
@@ -10,8 +12,6 @@ void substitui(int a[], int b[], int n);
 
 void init_rand();
 
-//
-
 int random_l_h(int min, int max);
 
 float rand_01();
@@ -19,5 +19,4 @@ float rand_01();
 int init_fich(char *nome_fich);
 
 int flip();
-
 

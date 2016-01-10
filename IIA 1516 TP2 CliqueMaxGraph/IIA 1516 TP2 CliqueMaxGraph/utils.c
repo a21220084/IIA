@@ -164,8 +164,8 @@ void gera_sol_inicial(int *sol, int v/*, int percent*/)
 {
 	int i, x;
 
-	//for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
-	//	sol[i] = flip();
+	for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
+		sol[i] = flip();
 
 	//for (i = 0; i<v; i++)
 	//	sol[i] = 0;
@@ -180,8 +180,8 @@ void gera_sol_inicial(int *sol, int v/*, int percent*/)
 
 
 	//////////////CRIA UMA SOLUÇÃO COMPLETAMENTE A 1
-	for (i = 0; i<v; i++)
-		sol[i] = 1;
+	//for (i = 0; i<v; i++)
+	//	sol[i] = 1;
 }
 
 // Escreve solucao
@@ -239,3 +239,30 @@ int flip()
 	else
 		return 1;
 }
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+pchrom init_pop(struct info d)
+{
+	int i, j;
+	pchrom p;
+
+	p = malloc(sizeof(chrom)*d.popsize);
+	if (p == NULL)
+	{
+		printf("Erro na alocacao de memoria\n");
+		exit(1);
+	}
+
+	for (i = 0; i<d.popsize; i++)
+	{
+		for (j = 0; j<d.numGenes; j++)
+			p[i].p[j] = flip();
+		p[i].fitness = 0.0;
+	}
+	return p;
+}
+
+
+
