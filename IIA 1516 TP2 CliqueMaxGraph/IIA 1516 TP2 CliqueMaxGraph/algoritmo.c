@@ -6,24 +6,29 @@
 //swap two vertices
 void gera_vizinho(int a[], int b[], int n)
 {
-	int i, p1, p2;
+	int i, p1, p2, num_1=0;
 
-	for (i = 0; i<n; i++)
+	for (i = 0; i < n; i++)
+	{
 		b[i] = a[i];
+		num_1++;
+	}
+	if (num_1 != n)
+	{
+		// Encontra posicao com valor 0
+		do
+			p1 = random_l_h(0, n - 1);
+		while (b[p1] != 0);
 
-	// Encontra posicao com valor 0
-	do
-		p1 = random_l_h(0, n - 1);
-	while (b[p1] != 0);
+		// Encontra posicao com valor 0
+		do
+			p2 = random_l_h(0, n - 1);
+		while (b[p2] != 1);
 
-	// Encontra posicao com valor 0
-	do
-		p2 = random_l_h(0, n - 1);
-	while (b[p2] != 1);
-
-	// Troca
-	/*b[p1] = 1;
-	b[p2] = 0;*/
+		// Troca
+		b[p1] = 1;
+		b[p2] = 0;
+	}
 }
 
 
@@ -49,8 +54,8 @@ int trepa_colinas(int sol[], int *mat, int vert, int num_iter)
 	for (i = 0; i<num_iter; i++)
 	{
 		// Gera vizinho
-		gera_vizinho(sol, nova_sol, vert);
-
+		gera_vizinho(sol, nova_sol, vert);		//Não faz sentido trocar entre vertices que já estão todos interligados entre si
+		//printf("CALCULAR O FIT");
 		// Avalia vizinho
 		custo_viz = calcula_fit(nova_sol, mat, vert);
 

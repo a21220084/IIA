@@ -164,8 +164,9 @@ void gera_sol_inicial(int *sol, int v/*, int percent*/)
 {
 	int i, x;
 
-	for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
-		sol[i] = flip();
+	//for (i = 0; i<v; i++)		//Cria uma solução inicial a com 50% prob!
+	//	sol[i] = flip();
+
 	//for (i = 0; i<v; i++)
 	//	sol[i] = 0;
 	//for (i = 0; i<v*0.1; i++)	//Devemos minimizar o 2! De modo a aumentar o. o 2 vai ser incrementado de 0 a 1 num ciclo for
@@ -176,6 +177,11 @@ void gera_sol_inicial(int *sol, int v/*, int percent*/)
 	//	sol[x] = 1;
 	//}
 	//printf("Nvo");
+
+
+	//////////////CRIA UMA SOLUÇÃO COMPLETAMENTE A 1
+	for (i = 0; i<v; i++)
+		sol[i] = 1;
 }
 
 // Escreve solucao

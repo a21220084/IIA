@@ -26,7 +26,7 @@ int calcula_fit(int a[], int *mat, int vert)
 					
 				}
 			}
-		
+
 		if (total == max_lig)
 			return total;			// só deve retornar o total caso todos estejam ligado entre si, ou seja total = numero max_lig de ligacoes para o numero de 1s
 		else
@@ -111,10 +111,10 @@ int evaluate(int *a, int *mat, int vert)
 
 		for (i = 0, temp = 0, conta = 0; i < vert; i++)
 		{
-				if (/*num_lig[i] != max_lig*/ conta == 0)// ASSIM IGNORA O MAX LIG CONTADO, SE COMENTAR FUNCIONA
+				if (a[i]==1)// ASSIM IGNORA O MAX LIG CONTADO, SE COMENTAR FUNCIONA
 				{
 					
-					if (a[i] == 1 && conta == 0) 
+					if (conta == 0) 
 					{
 						temp = num_lig[i];
 						pos = i;
@@ -130,8 +130,8 @@ int evaluate(int *a, int *mat, int vert)
 					}
 				}
 		}
-		printf("\n\nOLAOLA\n\n");
-		if ((temp != max_lig) && a[pos] == 1)
+		//printf("\n\nOLAOLA\n\n");
+		if ((temp != max_lig) && a[pos] == 1 && total != max_lig)
 		{
 			printf("\n\nREMOVI O ZERO\n\n");
 			a[pos] = 0;
